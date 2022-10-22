@@ -4,7 +4,7 @@
 Simply create a static class, that holds a Dictionary<Type, ILogger> and initialize a static LoggerFactory from your Startup Logic.
 
 ```csharp
-public static class StaticLogger
+public static class StaticLoggerFactory
 {
     private static ILoggerFactory _loggerFactory;
 
@@ -26,5 +26,23 @@ public static class StaticLogger
         return loggerByType
             .GetOrAdd(typeof(T), _loggerFactory.CreateLogger<T>());
     }
+}
+```
+
+## Using it
+
+Add this line to your GlobalUsings.cs
+
+```csharp
+global using static LoggerElimination.StaticLoggerFactory;
+```
+
+Use the StaticLoggerFactory like below:
+```csharp
+internal class Test
+{
+    private ILogger Logger { get => GetStaticLogger<Test>(); }
+
+    public void LogTest() => Logger.LogInformation("It works!");
 }
 ```
