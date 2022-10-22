@@ -1,2 +1,2 @@
 ﻿global using Microsoft.Extensions.Logging;
-global using static LoggerElimination.StaticLogger;
+global using static LoggerElimination.StaticLoggerFactory;

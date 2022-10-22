@@ -9,7 +9,7 @@ services
 
 var serviceProvider = services.BuildServiceProvider();
 
-StaticLogger.Initialize(serviceProvider.GetRequiredService<ILoggerFactory>());
+StaticLoggerFactory.Initialize(serviceProvider.GetRequiredService<ILoggerFactory>());
 
 var test = serviceProvider.GetRequiredService<Test>();
 test.LogTest();
