@@ -14,4 +14,7 @@ StaticLoggerFactory.Initialize(serviceProvider.GetRequiredService<ILoggerFactory
 var test = serviceProvider.GetRequiredService<Test>();
 test.LogTest();
 
+var test2 = serviceProvider.GetRequiredService<Test2>();
+test2.LogTest();
+
 Console.ReadLine();
