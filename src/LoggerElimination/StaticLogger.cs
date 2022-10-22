@@ -1,10 +1,8 @@
-# LoggerElimination
-## How to eliminate injecting ILogger everywhere in .NET
+﻿using System.Collections.Concurrent;
 
-Simply create a static class, that holds a Dictionary<Type, ILogger> and initialize a static LoggerFactory from your Startup Logic.
+namespace LoggerElimination;
 
-```csharp
-public static class StaticLogger
+internal static class StaticLogger
 {
     private static ILoggerFactory _loggerFactory;
 
@@ -27,4 +25,3 @@ public static class StaticLogger
             .GetOrAdd(typeof(T), _loggerFactory.CreateLogger<T>());
     }
 }
-```
