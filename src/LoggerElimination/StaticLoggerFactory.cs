@@ -2,7 +2,7 @@
 
 namespace LoggerElimination;
 
-internal static class StaticLogger
+internal static class StaticLoggerFactory
 {
     private static ILoggerFactory _loggerFactory;
 
